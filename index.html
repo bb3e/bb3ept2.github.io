@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgiveness Game</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      text-align: center;
+    }
+    button {
+      font-size: 18px;
+      padding: 15px 25px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>haha i miss you, please forgive me</h1>
+    <button id="yesBtn">yes ofc i will!</button>
+    <button id="noBtn">no >:(</button>
+  </div>
+
+  <script>
+    let noBtn = document.getElementById("noBtn");
+    let yesBtn = document.getElementById("yesBtn");
+
+    let swapping = true;
+
+    // Function to swap positions of "yes" and "no" buttons
+    function swapPositions() {
+      let tempX = noBtn.style.left;
+      let tempY = noBtn.style.top;
+      noBtn.style.left = yesBtn.style.left;
+      noBtn.style.top = yesBtn.style.top;
+      yesBtn.style.left = tempX;
+      yesBtn.style.top = tempY;
+    }
+
+    noBtn.addEventListener("click", () => {
+      if (swapping) {
+        swapPositions(); // Swap positions every time the "no" button is clicked
+      }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      alert("haha thanks for forgiving me, text me?");
+      swapping = false; // Stop swapping once "yes" is clicked
+    });
+  </script>
+</body>
+</html>
